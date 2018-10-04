@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
-
+import 'tachyons';
 import {updateIO, requestInput} from './redux/reducers'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux';
@@ -15,5 +15,5 @@ const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
 
 ReactDOM.render(
     <Provider>
-    <App store = {store} />
+        <App store = {store} />
     </Provider>, document.getElementById('root'));

@@ -14,9 +14,17 @@ import {
 
   export const requestInput = () => (dispatch) => {
      dispatch({type: REQUEST_IO_PENDING});
-     fetch('http://localhost:8000')
+     fetch('http://localhost:8080')
      .then(response => response.json())
      .then(data => dispatch({type:REQUEST_IO_SUCCESS, payload:data}))
      .catch(error => dispatch({type:REQUEST_IO_FAILED, payload:error}))
+
+    
+   /*  export const onButtonSubmit = (text) => (dispatch) => {
+        dispatch({type:REQUEST_IO_PENDING})
+        apiCall('http://localhost:8080/')
+          .then(text => dispatch({type:REQUEST_IO_SUCCESS, payload: text}))
+          .catch(error => dispatch({type: REQUEST_IO_FAILED, type: error}))
+      } */
      
  } 

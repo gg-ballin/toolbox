@@ -1,8 +1,8 @@
 import React from 'react';
 import './IOBoxes.scss';
-import { Button, ButtonToolbar } from 'react-bootstrap';
 
-const IOBoxes = ({ searchChange }) => {
+
+const IOBoxes = ({ searchChange, onButtonSubmit }) => {
   return  (
     
     <div className='pa2'>
@@ -14,11 +14,12 @@ const IOBoxes = ({ searchChange }) => {
           onChange={searchChange}
         />
       </label>
-      <ButtonToolbar>
-        <Button bsStyle="success" bsSize="small">
-           ➡
-        </Button>
-      </ButtonToolbar>  
+      <br></br>
+        <button
+          className='w-30 grow f4 link ph3 pv2 dib white bg-red'
+          onClick={onButtonSubmit}>
+              ➡
+        </button>
       <label>
         <input
           className='pa3 ba b--black bg-white'
