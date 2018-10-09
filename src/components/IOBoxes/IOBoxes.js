@@ -25,7 +25,6 @@ const IOBoxes = ({ searchChange, onButtonSubmit }) => {
           className='pa3 ba b--black bg-white'
           type='text'
           placeholder='Output'
-          onChange={searchChange}
         />
       </label>
     </div>

@@ -7,12 +7,13 @@ import { setInputField, requestInput } from '../redux/actions';
 
 class App extends Component {
   render() {
+    const { onSearchChange, onRequestInput, inputState } = this.props;
     return (
       <div className="App">
         <header className="App-header">
           
           <img style = {{paddingTop:'5px', width: '200px'}}src ={Toolbox} alt="logo"/>
-          <IOBoxes />
+          <IOBoxes searchChange={onSearchChange} onButtonSubmit={() => onRequestInput(inputState)}/>
         </header>
       </div>
     );
@@ -27,8 +28,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    onInputChange: (event) => dispatch(setInputField(event.target.value)),
-    onRequestInput: () => dispatch(requestInput())
+    onSearchChange: (event) => dispatch(setInputField(event.target.value)),
+    onRequestInput: (text) => dispatch(requestInput(text))
   }
 }
 
