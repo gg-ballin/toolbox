@@ -6,34 +6,35 @@ import Toolbox from './toolbox.jpg';
 import { setInputField, requestInput } from '../redux/actions';
 
 class App extends Component {
+  state = { input: '' , ouput: ''}
+  dispatch = this.props.dispatch;
   render() {
-    const { onSearchChange, onRequestInput, inputState } = this.props;
+    const { inputState } = this.props;
+    console.log(this.state.input);
+    console.log(this.props.output);
     return (
       <div className="App">
         <header className="App-header">
-          
-          <img style = {{paddingTop:'5px', width: '200px'}}src ={Toolbox} alt="logo"/>
-          <IOBoxes searchChange={onSearchChange} onButtonSubmit={() => onRequestInput(inputState)}/>
+          <img style = {{paddingTop:'5px', width: '200px'}} src={Toolbox} alt="logo"/>
+          <IOBoxes 
+          searchChange={(e) => this.setState({ input: e.target.value })} 
+          onButtonSubmit={() => this.dispatch(requestInput(this.state.input))}
+          output={(e) => this.setState({output: e.target.value})}
+          />
         </header>
       </div>
     );
   }
 }
+
+
 const mapStateToProps = (state) => {
   return {
     inputState: state.updateIO.inputState,
     isPending:state.requestInput.isPending,
+    output:state.requestInput.apiResponse,
     error:state.requestInput.error
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSearchChange: (event) => dispatch(setInputField(event.target.value)),
-    onRequestInput: (text) => dispatch(requestInput(text))
-  }
-}
 
-
-
-
-export default connect (mapStateToProps,mapDispatchToProps)(App);
+export default connect (mapStateToProps)(App);

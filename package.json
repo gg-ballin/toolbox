@@ -30,6 +30,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
+    "redux-mock-store": "^1.5.3"
   }
 }

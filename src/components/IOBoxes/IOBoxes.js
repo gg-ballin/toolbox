@@ -2,7 +2,7 @@ import React from 'react';
 import './IOBoxes.scss';
 
 
-const IOBoxes = ({ searchChange, onButtonSubmit }) => {
+const IOBoxes = ({ searchChange, onButtonSubmit, output }) => {
   return  (
     
     <div className='pa2'>
@@ -25,6 +25,7 @@ const IOBoxes = ({ searchChange, onButtonSubmit }) => {
           className='pa3 ba b--black bg-white'
           type='text'
           placeholder='Output'
+          onChange ={output}
         />
       </label>
     </div>
